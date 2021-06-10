@@ -35,4 +35,7 @@ Route::delete('/profesiones/{profession}', 'ProfessionController@destroy')->name
 
 Route::get('/habilidades/', 'SkillController@index')->name('skills.index');
 
+
+Route::get('/estudiantes/', 'StudentController@index')->name('students.index');
+
 Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController');
