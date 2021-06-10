@@ -22,11 +22,14 @@ class StudentFactory extends Factory
     public function definition()
     {
         return [
+            'fecha_alta' => $this->faker->date(),
             'first_name' => $this->faker->sentence(1),
             'last_name' => $this->faker->sentence(2),
             'nif' => $this->faker->unique()->uuid(),
             'adress' => $this->faker->sentence(2),
             'postcode' => $this->faker->numberBetween(1000,4000),
+            'validate' => $this->faker->boolean,
+            'repeating' => $this->faker->boolean,
         ];
     }
 }

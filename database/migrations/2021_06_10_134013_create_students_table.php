@@ -15,11 +15,14 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id()->autoIncrement();
+            $table->date('fecha_alta');
             $table->string('first_name');
             $table->string('last_name');
             $table->uuid('nif');
             $table->string('adress');
             $table->string('postcode');
+            $table->boolean('validate');
+            $table->boolean('repeating');
             $table->timestamps();
         });
     }

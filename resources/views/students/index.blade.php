@@ -3,6 +3,7 @@
 @section('title', 'Usuarios')
 
 @section('content')
+    <h1>Listado de Estudiantes</h1>
 
     {{--    <div class="d-flex justify-content-between align-items-end mb-3 mt-5">--}}
     {{--        <h1 class="pb-1">{{ trans("users.title.{$view}") }}</h1>--}}
@@ -16,10 +17,10 @@
     {{--        </p>--}}
     {{--    </div>--}}
 
-    {{--    @includeWhen($view == 'index', 'cabbies._filters')--}}
+    @includeWhen($view == 'index', 'students._filters')
 
     {{--@if ($products->isNotEmpty())--}}
-    <h1>Listado de Estudiantes</h1>
+
 
     <div class="table-responsive-lg">
         <table class="table table-sm">
