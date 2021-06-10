@@ -17,6 +17,7 @@ class AddTeamIdToUsers extends Migration
             $table->unsignedBigInteger('team_id')->nullable()->after('id');
             $table->foreign('team_id')->references('id')->on('teams');
         });
+
     }
 
     /**
