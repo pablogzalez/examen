@@ -67,7 +67,7 @@
                     <a class="nav-link" href="{{ route('skills.index') }}">Habilidades <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('skills.index') }}">Estudiantes <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{{ route('students.index') }}">Estudiantes <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
         </div>

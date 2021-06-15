@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     /**
      * Create a new Eloquent query builder for the model.
      *
@@ -19,8 +20,8 @@ class Student extends Model
         return new StudentQuery($query);
     }
 
-    public function enrollments()
+    public function enrollment()
     {
-        return $this->belongsTo(Enrollment::class)->withDefault();
+        return $this->hasOne(Enrollment::class)->withDefault(); //esta relacion era incorrecta.
     }
 }

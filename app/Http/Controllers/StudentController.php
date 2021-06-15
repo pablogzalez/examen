@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Http\Requests\CreateStudentRequest;
 use App\Sortable;
 use App\Student;
 use App\Enrollment;
-use Illuminate\Http\Request;
+
 
 class StudentController extends Controller
 {
@@ -27,5 +27,24 @@ class StudentController extends Controller
             'sortable' => $sortable,
         ]);
 
+    }
+
+    public function create()
+    {
+        return $this->form('students.create', new Student());
+    }
+
+    public function store(CreateStudentRequest $request)
+    {
+        $request->createStudent();
+
+        return redirect()->route('students.index');
+    }
+
+    public function form($view, Student $student)
+    {
+        return view($view, [
+            'student' => $student,
+        ]);
     }
 }

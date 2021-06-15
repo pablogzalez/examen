@@ -5,22 +5,11 @@
 @section('content')
     <h1>Listado de Estudiantes</h1>
 
-    {{--    <div class="d-flex justify-content-between align-items-end mb-3 mt-5">--}}
-    {{--        <h1 class="pb-1">{{ trans("users.title.{$view}") }}</h1>--}}
-    {{--        <p>--}}
-    {{--                @if ($view == 'index')--}}
-    {{--                <a href="{{ route('users.trashed') }}" class="btn btn-outline-dark">Ver papelera</a>--}}
-    {{--                    <a href="{{ route('products.create') }}" class="btn btn-primary">Nuevo producto</a>--}}
-    {{--                  @else--}}
-    {{--                <a href="{{ route('users.index') }}" class="btn btn-outline-dark">Regresar al listado de usuarios</a>--}}
-    {{--                @endif--}}
-    {{--        </p>--}}
-    {{--    </div>--}}
+    <p>
+        <a href="{{ route('students.create') }}" class="btn btn-primary">Crear Estudiante</a>
+    </p>
 
     @includeWhen($view == 'index', 'students._filters')
-
-    {{--@if ($products->isNotEmpty())--}}
-
 
     <div class="table-responsive-lg">
         <table class="table table-sm">
@@ -46,7 +35,4 @@
         {{ $students->links() }}
     </div>
 
-    {{--@else--}}
-    {{--    <p>No hay usuarios registrados</p>--}}
-    {{--@endif--}}
 @endsection

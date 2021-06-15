@@ -37,5 +37,7 @@ Route::get('/habilidades/', 'SkillController@index')->name('skills.index');
 
 
 Route::get('/estudiantes/', 'StudentController@index')->name('students.index');
+Route::get('estudiantes/nuevo', 'StudentController@create')->name('students.create');
+Route::post('/estudiantes', 'StudentController@store')->name('students.store');
 
 Route::get('/saludo/{name}/{nickname?}', 'WelcomeUserController');
