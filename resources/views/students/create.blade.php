@@ -44,7 +44,7 @@
             @foreach([ '1' => 'Validado'] as $value => $text)
                 <div class="form-check form-check-inline ml-3">
                     <input type="checkbox" class="form-check-input" name="validate" id="students_{{ $value ?: 'all' }}"
-                           value="{{ $value }}" {{ $value === request('validate', '') ? 'checked' : '' }}>
+                           value="{{ $value }}" {{ old('validate', $value) === request('validate', '') ? 'checked' : '' }}>
                     <label class="form-check-label" for="students_{{ $value ?: 'all' }}">{{ $text }}</label>
                 </div>
             @endforeach
@@ -55,7 +55,7 @@
             @foreach([ '1' => 'Repetidor', '0' => 'No Repetidor'] as $value => $text)
                 <div class="form-check form-check-inline ml-3">
                     <input type="radio" class="form-check-input" name="repeating" id="students_{{ $value ?: 'all' }}"
-                           value="{{ $value }}" {{ $value === request('repeating', '') ? 'checked' : '' }}>
+                           value="{{ $value }}" {{ old('repeating', $value) === request('repeating', '') ? 'checked' : '' }}>
                     <label class="form-check-label" for="students_{{ $value ?: 'all' }}">{{ $text }}</label>
                 </div>
             @endforeach
