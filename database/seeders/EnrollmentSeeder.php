@@ -21,22 +21,18 @@ class EnrollmentSeeder extends Seeder
         $this->student = Student::all();
         $this->course = Course::all();
 
-        foreach (range(1, 20) as $i) {
-            $this->createRandomEnrollment();
+        foreach ($this->student->id as $i) {
+            $this->createRandomEnrollment($i);
         }
     }
 
-    public function createRandomEnrollment()
+    public function createRandomEnrollment($i)
     {
 
-        foreach (range(1, 20) as $i) {
-
             $enrollment = Enrollment::factory()->create([
-                'student_id' => $this->student->random()->id,
+                'student_id' => $i,
                 'course_id' => $this->course->random()->id,
             ]);
-
-        }
 
     }
 }
