@@ -14,8 +14,11 @@ class CourseSeeder extends Seeder
      */
     public function run()
     {
-        foreach (range(1, 20) as $i) {
-            Course::factory()->create([]);
-        }
+        Course::factory()->create(['course' => '1', 'level' => 'ESO']);
+        Course::factory()->create(['course' => '2', 'level' => 'ESO']);
+        Course::factory()->create(['course' => '3', 'level' => 'ESO']);
+        Course::factory()->create(['course' => '4', 'level' => 'ESO']);
+        Course::factory()->create(['course' => '1', 'level' => 'Bachillerato']);
+        Course::factory()->create(['course' => '2', 'level' => 'Bachillerato']);
     }
 }
