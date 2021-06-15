@@ -18,7 +18,7 @@ class StudentSeeder extends Seeder
     {
         $this->enrollment = Enrollment::all();
 
-        foreach (range(1, 20) as $i) {
+        foreach (range(1, 500) as $i) {
             $this->createRandomStudent();
         }
     }
