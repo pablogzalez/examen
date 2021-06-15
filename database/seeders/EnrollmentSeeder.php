@@ -28,7 +28,6 @@ class EnrollmentSeeder extends Seeder
 
     public function createRandomEnrollment($i)
     {
-
             $enrollment = Enrollment::factory()->create([
                 'student_id' => $i,
                 'course_id' => $this->course->random()->id,
