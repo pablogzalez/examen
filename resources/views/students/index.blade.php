@@ -17,14 +17,14 @@
             <tr>
                 <th scope="col">#<span></span></th>
 
-                <th scope="col"><a href="{{ $sortable->url('first_name') }}" class="{{ $sortable->classes('first_name') }}">Nombre</a></th>
-                <th scope="col"><a href="{{ $sortable->url('last_name') }}" class="{{ $sortable->classes('last_name') }}">Apellido</a></th>
-                <th scope="col"><a href="">NIF</a></th>
-                <th scope="col"><a href="">Calle</a></th>
-                <th scope="col"><a href="">Codigo postal</a></th>
-                <th scope="col"><a href="">Fecha de alta</a></th>
-                <th scope="col"><a href="">Validado</a></th>
-                <th scope="col"><a href="">Repetidor</a></th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">NIF</th>
+                <th scope="col">Calle</th>
+                <th scope="col">Codigo postal</th>
+                <th scope="col">Fecha de alta</th>
+                <th scope="col">Validado</th>
+                <th scope="col">Repetidor</th>
 
             </tr>
             </thead>

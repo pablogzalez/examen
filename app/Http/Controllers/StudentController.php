@@ -16,7 +16,7 @@ class StudentController extends Controller
 
         $students = Student::query()
             ->applyFilters()
-            ->orderByDesc('created_at')
+            ->orderByDesc('first_name','last_name')
             ->paginate();
 
         $sortable->appends($students->parameters());

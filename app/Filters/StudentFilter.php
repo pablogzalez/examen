@@ -53,11 +53,4 @@ class StudentFilter extends QueryFilter
         return $this->aliasses[$alias] ?? $alias;
     }
 
-
-    public function order($query, $value)
-    {
-        [$column, $direction] = Sortable::info($value);
-
-        $query->orderBy($this->getColumnName($column), $direction);
-    }
 }
