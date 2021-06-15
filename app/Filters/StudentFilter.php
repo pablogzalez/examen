@@ -12,7 +12,6 @@ class StudentFilter extends QueryFilter
     {
         return [
             'search' => 'filled',
-            'order' => [new SortableColumn(['first_name', 'last_name'])],
             'validate' => 'in:active,inactive',
             'repeating' => 'in:active,inactive',
             'minDate' => 'date_format:Y-m-d',

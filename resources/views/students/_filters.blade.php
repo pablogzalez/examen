@@ -12,13 +12,6 @@
 
     <div class="row row-filters">
         <div class="col-2">
-            {{--@foreach(['' => 'Todos', 'active' => 'working', 'inactive' => 'not working'] as $value => $text)
-                <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="work" id="students_{{ $value ?: 'all' }}"
-                           value="{{ $value }}" {{ $value === request('work', '') ? 'checked' : '' }}>
-                    <label class="form-check-label" for="students_{{ $value ?: 'all' }}">{{ $text }}</label>
-                </div>
-            @endforeach--}}
             <h6>Buscador (nombre y apellidos):</h6>
             <div class="input-group">
 
