@@ -37,6 +37,20 @@ class CreateStudentRequest extends FormRequest
         ];
     }
 
+    public function messages()
+    {
+        return [
+            'first_name.required' => 'El campo nombre es obligatorio',
+            'last_name.required' => 'El campo apellidos es obligatorio',
+            'nif.required' => 'El campo NIF es obligatorio',
+            'address.email' => 'El valor introducido no es una direccion válida',
+            'fecha_alta.required' => 'El campo fecha es obligatorio y su formato tiene que ser Y-m-d',
+            'validate.required' => 'El campo validado es obligatorio',
+            'repeating.required' => 'El campo repetidor es obligatorio',
+            'postcode.required' => 'El campo codigo postal es obligatorio',
+        ];
+    }
+
     public function createStudent()
     {
         DB::transaction(function () {
