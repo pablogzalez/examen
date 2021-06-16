@@ -31,7 +31,7 @@ class CreateStudentRequest extends FormRequest
             'last_name' => 'required',
             'nif' => 'required',
             'adress' => 'required',
-            'validate' => 'required|boolean',
+            'validate' => 'boolean',
             'repeating' => 'required|boolean',
             'postcode' => 'required',
             'course_id' => 'required'

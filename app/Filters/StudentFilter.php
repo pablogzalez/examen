@@ -36,13 +36,13 @@ class StudentFilter extends QueryFilter
     public function minDate($query, $desde)
     {
         $date = Carbon::createFromFormat('Y-m-d', $desde);
-        $query->where('created_at', '>=', $date); //ya no es fecha_alta, ya que lo borre para utilizar el created_at directamente.
+        $query->whereDate('created_at', '>=', $date); //ya no es fecha_alta, ya que lo borre para utilizar el created_at directamente.
     }
 
     public function maxDate($query, $a)
     {
         $date = Carbon::createFromFormat('Y-m-d', $a);
-        $query->where('created_at', '<=', $date);
+        $query->whereDate('created_at', '<=', $date);
     }
 
     public function search($query, $search)
