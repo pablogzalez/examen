@@ -17,7 +17,8 @@ class StudentController extends Controller
         $students = Student::query()
             ->with('enrollment')
             ->applyFilters()
-            ->orderByDesc('first_name','last_name')
+            ->orderBy('last_name')
+            ->orderBy('first_name')
             ->paginate();
 
         $sortable->appends($students->parameters());

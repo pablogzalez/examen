@@ -1,9 +1,10 @@
 <tr>
     <td>{{ $student->id }}</td>
+    <td>{{ $student->last_name }}</td>
     <td>
         {{ $student->first_name }}
     </td>
-    <td>{{ $student->last_name }}</td>
+
     <td>{{ $student->nif }}</td>
     <td>{{ $student->adress }}</td>
     <td>{{ $student->postcode }}</td>
