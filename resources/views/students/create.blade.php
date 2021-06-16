@@ -34,17 +34,12 @@
                 <input type="text" name="postcode" placeholder="Codigo Postal..." value="{{ old('postcode', $student->postcode) }}" class="form-control">
             </div>
 
-            <div class="form-group">
-                <label for="expiration_date">Fecha de alta:</label>
-                <input type="text" name="fecha_alta" placeholder="Fecha de alta..." value="{{ old('fecha_alta', $student->fecha_alta) }}" class="form-control">
-            </div>
-
             <label for="stock">¿Validado?</label>
 
             @foreach([ '1' => 'Validado'] as $value => $text)
                 <div class="form-check form-check-inline ml-3">
                     <input type="checkbox" class="form-check-input" name="validate" id="students_{{ $value ?: 'all' }}"
-                           value="{{ $value }}" {{ old('validate', $value) === request('validate', '') ? 'checked' : '' }}>
+                           value="{{ $value }}" {{ old('validate') ? 'checked' : '' }}>
                     <label class="form-check-label" for="students_{{ $value ?: 'all' }}">{{ $text }}</label>
                 </div>
             @endforeach
@@ -55,12 +50,20 @@
             @foreach([ '1' => 'Repetidor', '0' => 'No Repetidor'] as $value => $text)
                 <div class="form-check form-check-inline ml-3">
                     <input type="radio" class="form-check-input" name="repeating" id="students_{{ $value ?: 'all' }}"
-                           value="{{ $value }}" {{ old('repeating', $value) === request('repeating', '') ? 'checked' : '' }}>
+                           value="{{ $value }}" {{ old('repeating', $value) == $value ? 'checked' : '' }}>
                     <label class="form-check-label" for="students_{{ $value ?: 'all' }}">{{ $text }}</label>
                 </div>
             @endforeach
 
-
+            <div class="form-group">
+                <label for="course_id">Curso: </label>
+                <select name="course_id" id="course_id" class="form-control">
+                    <option value="">Selecciona un nivel</option>
+                    @foreach($courses as $course)
+                        <option value="{{ $course->id }}">{{ $course->course .  $course->level }}</option>
+                    @endforeach
+                </select>
+            </div>
 
             <div class="form-group mt-4">
                 <button type="submit" class="btn btn-primary">Crear estudiante</button>

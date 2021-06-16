@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Enrollment;
 use App\Student;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\DB;
@@ -30,10 +31,10 @@ class CreateStudentRequest extends FormRequest
             'last_name' => 'required',
             'nif' => 'required',
             'adress' => 'required',
-            'fecha_alta' => 'required|date_format:Y-m-d',
             'validate' => 'required|boolean',
             'repeating' => 'required|boolean',
-            'postcode' => 'required'
+            'postcode' => 'required',
+            'course_id' => 'required'
         ];
     }
 
@@ -43,11 +44,11 @@ class CreateStudentRequest extends FormRequest
             'first_name.required' => 'El campo nombre es obligatorio',
             'last_name.required' => 'El campo apellidos es obligatorio',
             'nif.required' => 'El campo NIF es obligatorio',
-            'address.email' => 'El valor introducido no es una direccion válida',
-            'fecha_alta.required' => 'El campo fecha es obligatorio y su formato tiene que ser Y-m-d',
+            'adress.required' => 'El campo direccion es obligatorio',
             'validate.required' => 'El campo validado es obligatorio',
             'repeating.required' => 'El campo repetidor es obligatorio',
             'postcode.required' => 'El campo codigo postal es obligatorio',
+            'course_id.required' => 'La seleccion del curso es obligatoria'
         ];
     }
 
@@ -59,10 +60,13 @@ class CreateStudentRequest extends FormRequest
                 'last_name' => $this->last_name,
                 'nif' => $this->nif,
                 'adress' => $this->adress,
-                'fecha_alta' => $this->fecha_alta,
-                'validate' => $this->validate ?? 0,
-                'repeating' => $this->repeating ?? 0,
                 'postcode' => $this->postcode,
+            ]);
+            Enrollment::create([
+                'validated' => $this->validate ?? 0,
+                'repeating' => $this->repeating ?? 0,
+                'student_id'=> $student->id,
+                'course_id'=> $this->course_id,
             ]);
         });
     }

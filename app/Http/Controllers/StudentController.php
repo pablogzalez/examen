@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Http\Requests\CreateStudentRequest;
 use App\Sortable;
 use App\Student;
@@ -47,6 +48,7 @@ class StudentController extends Controller
     {
         return view($view, [
             'student' => $student,
+            'courses' => Course::orderBy('level', 'ASC')->get(), // para que las opciones en el desplegable del formulario de creacion aparezcan ordenados por nivel.
         ]);
     }
 }

@@ -9,6 +9,8 @@ class Enrollment extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function student() //cambio la relacion a singular, como nos dijiste.
     {
         return $this->belongsTo(Student::class);
