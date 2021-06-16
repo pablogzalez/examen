@@ -24,6 +24,7 @@
                 <th scope="col">Codigo postal</th>
                 <th scope="col">Validado</th>
                 <th scope="col">Repetidor</th>
+                <th scope="col">Fecha de Alta</th>
 
             </tr>
             </thead>
