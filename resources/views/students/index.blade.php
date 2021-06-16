@@ -20,8 +20,6 @@
                                             y luego la del nombre en la tabla, al igual modificare el orden en las filas.--}}
                 <th scope="col">Nombre</th>
                 <th scope="col">NIF</th>
-                <th scope="col">Calle</th>
-                <th scope="col">Codigo postal</th>
                 <th scope="col">Validado</th>
                 <th scope="col">Repetidor</th>
                 <th scope="col">Fecha de Alta</th>
