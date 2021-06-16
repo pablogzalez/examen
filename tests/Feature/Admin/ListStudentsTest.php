@@ -4,26 +4,37 @@ namespace Tests\Feature\Admin;
 
 use App\Product;
 use App\Student;
+use App\Course;
+use App\Enrollment;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ListStudentsTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    use RefreshDatabase;
+
     /** @test */
     function it_shows_the_students_list()
     {
-        Student::factory()->create([
+        $student = Student::factory()->create([
             'first_name' => 'Pepe',
         ]);
+        $course1 = Course::factory()->create();
+        $enrollment = Enrollment::factory()->create([
+            'student_id' => $student->id,
+            'course_id' => $course1->id,
+            'validated' => '1'
+        ]);
 
-        Student::factory()->create([
+        $student2 = Student::factory()->create([
             'first_name' => 'Pablo',
+        ]);
+        $enrollment2 = Enrollment::factory()->create([
+            'student_id' => $student2->id,
+            'course_id' => $course1->id,
+            'validated' => '0'
+
         ]);
 
         $this->get('/estudiantes')
@@ -33,51 +44,6 @@ class ListStudentsTest extends TestCase
 
         $this->assertNotRepeatedQueries();
     }
-
-    /** @test */
-    function students_are_ordered_by_name()
-    {
-        Student::factory()->create(['first_name' => 'A']);
-        Student::factory()->create(['first_name' => 'B']);
-        Student::factory()->create(['first_name' => 'C']);
-
-        $this->get('/estudiantes?order=first_name')
-            ->assertSeeInOrder([
-                'A',
-                'B',
-                'C',
-            ]);
-
-        $this->get('/estudiantes?order=first_name-desc')
-            ->assertSeeInOrder([
-                'C',
-                'B',
-                'A',
-            ]);
-    }
-
-    /** @test */
-    function students_are_ordered_by_last_name()
-    {
-        Student::factory()->create(['first_name' => 'A']);
-        Student::factory()->create(['first_name' => 'B']);
-        Student::factory()->create(['first_name' => 'C']);
-
-        $this->get('/estudiantes?order=last_name')
-            ->assertSeeInOrder([
-                'A',
-                'B',
-                'C',
-            ]);
-
-        $this->get('/estudiantes?order=last_name-desc')
-            ->assertSeeInOrder([
-                'C',
-                'B',
-                'A',
-            ]);
-    }
-
 
 
 }
