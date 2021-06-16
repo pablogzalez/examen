@@ -22,7 +22,6 @@ class StudentFilter extends QueryFilter
 
     public function validate($query, $active)
     {
-
             if ($active == 'active') {
                 $query->WhereHas('enrollment', function ($query) use ($active) {
                     $query->where('validated', 1);
