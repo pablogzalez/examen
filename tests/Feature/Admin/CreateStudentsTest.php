@@ -62,5 +62,59 @@ class CreateStudentsTest extends TestCase
         $this->assertDatabaseEmpty('students');
     }
 
+    /** @test */
+    public function the_last_name_is_required()
+    {
+        $this->handleValidationExceptions();
+
+        $this->post('/estudiantes/', $this->withData(['last_name' => '']))
+            ->assertSessionHasErrors(['last_name']);
+
+        $this->assertDatabaseEmpty('students');
+    }
+
+    /** @test */
+    public function the_last_nif_is_required()
+    {
+        $this->handleValidationExceptions();
+
+        $this->post('/estudiantes/', $this->withData(['nif' => '']))
+            ->assertSessionHasErrors(['nif']);
+
+        $this->assertDatabaseEmpty('students');
+    }
+
+    /** @test */
+    public function the_last_adress_is_required()
+    {
+        $this->handleValidationExceptions();
+
+        $this->post('/estudiantes/', $this->withData(['adress' => '']))
+            ->assertSessionHasErrors(['adress']);
+
+        $this->assertDatabaseEmpty('students');
+    }
+
+    /** @test */
+    public function the_postcode_is_required()
+    {
+        $this->handleValidationExceptions();
+
+        $this->post('/estudiantes/', $this->withData(['postcode' => '']))
+            ->assertSessionHasErrors(['postcode']);
+
+        $this->assertDatabaseEmpty('students');
+    }
+
+    /** @test */
+    public function the_course_is_required()
+    {
+        $this->handleValidationExceptions();
+
+        $this->post('/estudiantes/', $this->withData(['course_id' => '']))
+            ->assertSessionHasErrors(['course_id']);
+
+        $this->assertDatabaseEmpty('students');
+    }
 
 }
