@@ -15,6 +15,7 @@ class StudentController extends Controller
         $enrollments = Enrollment::all();
 
         $students = Student::query()
+            ->with('enrollment')
             ->applyFilters()
             ->orderByDesc('first_name','last_name')
             ->paginate();

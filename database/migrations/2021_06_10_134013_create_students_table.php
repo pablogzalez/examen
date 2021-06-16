@@ -15,16 +15,13 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->date('fecha_alta');
             $table->string('first_name');
             $table->string('last_name');
             $table->uuid('nif');
             $table->string('adress');
             $table->string('postcode');
-            $table->boolean('validate');
-            $table->boolean('repeating');
             $table->timestamps();
-        });
+        }); //he borrado las columnas fecha_alta (la obtengo del created_at), validate y repeating (ya que ahora no las obtendre de esta tabla, sino de la correspondiente).
     }
 
     /**

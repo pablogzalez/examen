@@ -22,7 +22,6 @@
                 <th scope="col">NIF</th>
                 <th scope="col">Calle</th>
                 <th scope="col">Codigo postal</th>
-                <th scope="col">Fecha de alta</th>
                 <th scope="col">Validado</th>
                 <th scope="col">Repetidor</th>
 

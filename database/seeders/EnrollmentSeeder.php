@@ -21,7 +21,7 @@ class EnrollmentSeeder extends Seeder
         $this->student = Student::all();
         $this->course = Course::all();
 
-        foreach ($this->student->id as $i) {
+        foreach ($this->student as $i) {
             $this->createRandomEnrollment($i);
         }
     }
@@ -29,8 +29,9 @@ class EnrollmentSeeder extends Seeder
     public function createRandomEnrollment($i)
     {
             $enrollment = Enrollment::factory()->create([
-                'student_id' => $i,
+                'student_id' => $i->id, //estaba llamando a la id directamente en el foreach, ahora si funciona.
                 'course_id' => $this->course->random()->id,
+                'created_at' => $i->created_at, //el created at del alumno sera el mismo que el de la matricula
             ]);
 
     }

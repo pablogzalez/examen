@@ -7,10 +7,9 @@
     <td>{{ $student->nif }}</td>
     <td>{{ $student->adress }}</td>
     <td>{{ $student->postcode }}</td>
-    <td>{{ $student->fecha_alta }}</td>
-    <td>{{ $student->validate }}</td>
-    <td>{{ $student->repeating }}</td>
+    <td>{{ $student->enrollment->validated}}</td>
+    <td>{{ $student->enrollment->repeating}}</td>
+    <td></td>
 
-    <td></td>
-    <td></td>
+
 </tr>
